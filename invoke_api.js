@@ -50,6 +50,7 @@ async function invokeApi({
     console.log(results, "API results");
     return results.data;
   } catch (error) {
+    console.log(error);
     console.log(error.response.status, "error.response.data.message");
     if (error.response.status === 401) {
       // alert(reqObj.url)

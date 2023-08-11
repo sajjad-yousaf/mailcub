@@ -1,5 +1,5 @@
 const invokeApi = require("./invoke_api");
-const addCustomer = async (customer_body) => {
+const addCustomer = async (body) => {
   try {
     let requestObj = {
       path: "https://mailserverapi.devflips.com/api/customer/signup_customer",
@@ -8,7 +8,7 @@ const addCustomer = async (customer_body) => {
         "Content-Type": "application/json",
       },
     };
-    requestObj["postData"] = customer_body;
+    requestObj["postData"] = body;
     const result = await invokeApi(requestObj);
     if (result.code === 200) {
       let result_obj = {
@@ -24,7 +24,7 @@ const addCustomer = async (customer_body) => {
     return err;
   }
 };
-const editCustomer = async (customer_body, key) => {
+const editCustomer = async (body, key) => {
   try {
     let requestObj = {
       path: "https://mailserverapi.devflips.com/api/customer/edit_customer_by_key",
@@ -34,7 +34,7 @@ const editCustomer = async (customer_body, key) => {
         "x-sh-key": key,
       },
     };
-    requestObj["postData"] = customer_body;
+    requestObj["postData"] = body;
     const result = await invokeApi(requestObj);
     if (result.code === 200) {
       let result_obj = {
@@ -120,6 +120,30 @@ const verifyDomain = async (body, key) => {
     return err;
   }
 };
+const checkDomainVerify = async (body, key) => {
+  try {
+    let requestObj = {
+      path: "https://mailserverapi.devflips.com/api/customer_domain/check_domain_verification",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-sh-key": key,
+      },
+    };
+    requestObj["postData"] = body;
+    const result = await invokeApi(requestObj);
+    if (result.code === 200) {
+      let result_obj = {
+        code: result.code,
+        message: result.message,
+      };
+      return result_obj;
+    }
+    return result;
+  } catch (err) {
+    return err;
+  }
+};
 const sendMail = async (body, key) => {
   try {
     let requestObj = {
@@ -144,6 +168,15 @@ const sendMail = async (body, key) => {
     return err;
   }
 };
+let body = {
+  name: "wezily.com",
+};
+let key = "ecb3f630-2537-11ee-80fe-2b54f10a72aa";
+const restfunc = async () => {
+  let result = await checkDomainVerify(body, key);
+  console.log(result);
+};
+restfunc();
 module.exports = {
   addCustomer,
   editCustomer,
@@ -151,4 +184,5 @@ module.exports = {
   addDomain,
   verifyDomain,
   sendMail,
+  checkDomainVerify,
 };
