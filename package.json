@@ -1,5 +1,5 @@
 {
-  "name": "mail-fleet",
+  "name": "mailcub",
   "version": "1.0.1",
   "description": "This package enables users to send emails using their registered domains, providing a professional and branded approach to communication.",
   "main": "index.js",
@@ -12,12 +12,12 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/TeamDlxx/mail-fleet.git"
+    "url": "git+ssh://git@github.com/TeamDlxx/mailcub.git"
   },
   "author": "Team DLX",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/TeamDlxx/mail-fleet/issues"
+    "url": "https://github.com/TeamDlxx/mailcub/issues"
   },
-  "homepage": "https://github.com/TeamDlxx/mail-fleet#readme"
+  "homepage": "https://github.com/TeamDlxx/mailcub#readme"
 }
