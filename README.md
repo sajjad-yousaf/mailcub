@@ -34,9 +34,9 @@ To send an email, use the sendMail function with the following parameters:
 
 ```javascript
 const emailBody = {
-  email_from: 'Done@mailcub.com',
-  reciever: 'alisaad.dev@gmail.com',
-  subject: 'Dynamite',
+  email_from: 'example@yourdomain.com',
+  reciever: 'example@gmail.com',
+  subject: 'Subject',
   html: '<h1>Hello</h1>',
   attachment: 'attachment_path',
 };
