@@ -18,7 +18,9 @@ const sendMail = async (body, key) => {
       };
       return result_obj;
     }
-    return result;
+    throw new Error(
+      `API request failed with code ${result.code}: ${result.message}`
+    );
   } catch (err) {
     return err;
   }
