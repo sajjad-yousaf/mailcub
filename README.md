@@ -34,11 +34,11 @@ To send an email, use the sendMail function with the following parameters:
 
 ```javascript
 const emailBody = {
-  email_from: 'example@yourdomain.com',
-  reciever: 'example@gmail.com',
+  email_from: 'user@yourdomain.com',
+  receiver: 'user@example.com',
   subject: 'Subject',
   html: '<h1>Hello</h1>',
-  attachment: 'attachment_path',
+  attachment: 'attachment_path'
 };
 
 const secretKey = 'your-secret-key';
@@ -53,14 +53,14 @@ mailcub.sendMail(emailBody, secretKey)
 ```
 
 ## Parameters
-- body (Object):
-
+- emailBody (Object):
     - email_from (String): The sender's email address.
-    - reciever (String): The recipient's email address.
+    - receiver (String): The recipient's email address.
     - subject (String): The email subject.
     - html (String): The HTML content of the email.
-    - attachment (String): The path to an attachment file.
-- key (String): The secret key for authentication. You can obtain this key from console.mailcub.com.
+    - attachment (String or Array): The file path of a single attachment, or an array of file paths for multiple attachments — e.g., ['path/to/file1', 'path/to/file2', 'path/to/file3'].
+
+- secretKey (String): The secret key for authentication. You can obtain this key from console.mailcub.com.
 
 ## Support and Issues
 If you encounter any issues or have questions, please contact our support team at support@mailcub.com.

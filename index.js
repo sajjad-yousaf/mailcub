@@ -2,7 +2,7 @@ const invokeApi = require("./invoke_api");
 const sendMail = async (body, key) => {
   try {
     let requestObj = {
-      path: "https://apidev.mailcub.com/api/customer/send_email",
+      path: "https://api.mail.mailcub.com/api/send_email",
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -1,6 +1,6 @@
 {
   "name": "mailcub",
-  "version": "1.0.5",
+  "version": "2.0",
   "description": "This package enables users to send emails using their registered domains, providing a professional and branded approach to communication.",
   "main": "index.js",
   "scripts": {
@@ -12,12 +12,12 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/TeamDlxx/mailcub.git"
+    "url": "git+ssh://git@github.com:sajjad-yousaf/mailcub.git"
   },
   "author": "Team DLX",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/TeamDlxx/mailcub/issues"
+    "url": "https://github.com/sajjad-yousaf/mailcub/issues"
   },
-  "homepage": "https://github.com/TeamDlxx/mailcub#readme"
+  "homepage": "https://github.com/sajjad-yousaf/mailcub#readme"
 }
