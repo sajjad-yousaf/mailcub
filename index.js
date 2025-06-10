@@ -15,7 +15,9 @@ const sendMail = async (body, key) => {
 
   // Explicitly throw error for non-200 responses
   if (result.code !== 200) {
-    throw new Error(`API request failed: ${result.message || "Unknown error"}`);
+    const error = new Error(`API request failed: ${result.message || "Unknown error"}`);
+    error.code = result.code; // Attach custom error code
+    throw error;
   }
 
   // Success
@@ -24,7 +26,9 @@ const sendMail = async (body, key) => {
     message: result.message,
   };
 };
- 
+
+
 module.exports = {
   sendMail,
 };
+ 

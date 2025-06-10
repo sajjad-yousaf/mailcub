@@ -1,5 +1,5 @@
 # Mailcub Package Documentation
-Version: 2.0.2
+Version: 2.0.3
 
 ## Introduction
 Mailcub is an npm package that enables you to send emails using a simple and straightforward interface. It provides a function to send emails with the following features:
@@ -68,5 +68,4 @@ If you encounter any issues or have questions, please contact our support team a
 ## License
 This package is distributed under the MIT License. See the LICENSE file for details.
 
-## Release Notes
-- 1.0.5 (2023-10-17): Initial release of the Mailcub package.
+
