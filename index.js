@@ -1,32 +1,37 @@
 const invokeApi = require("./invoke_api");
 
 const sendMail = async (body, key) => {
-  let requestObj = {
-    path: "https://api.mail.mailcub.com/api/send_email",
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "x-sh-key": key,
-    },
-    postData: body,
-  };
+  try {
+    const requestObj = {
+      path: "https://api.mail.mailcub.com/api/send_email",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-sh-key": key,
+      },
+      postData: body,
+    };
 
-  const result = await invokeApi(requestObj);
+    const result = await invokeApi(requestObj);
 
-  // Explicitly throw error for non-200 responses
-  if (result.code !== 200) {
-    const error = new Error(`API request failed: ${result.message || "Unknown error"}`);
-    error.code = result.code; // Attach custom error code
-    throw error;
+    if (result.code !== 200) {
+      const error = new Error(result.message || "Unknown error from Mailcub API");
+      error.code = result.code;
+      throw error;
+    }
+
+    return {
+      code: result.code,
+      message: result.message,
+    };
+
+  } catch (err) {
+    throw {
+      code: err.code || 500,
+      message: err.message || "An unexpected error occurred while sending email."
+    };
   }
-
-  // Success
-  return {
-    code: result.code,
-    message: result.message,
-  };
 };
-
 
 module.exports = {
   sendMail,
