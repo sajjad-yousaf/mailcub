@@ -11,20 +11,28 @@ const sendMail = async (body, key) => {
     };
     requestObj["postData"] = body;
     const result = await invokeApi(requestObj);
+
     if (result.code === 200) {
-      let result_obj = {
+      return {
+        success: true,
         code: result.code,
         message: result.message,
       };
-      return result_obj;
     }
-    throw new Error(
-      `API request failed with code ${result.code}: ${result.message}`
-    );
+
+    return {
+      success: false,
+      code: result.code,
+      message: result.message || "Failed to send email",
+    };
   } catch (err) {
-    return err;
+    return {
+      success: false,
+      message: err.message || "Unknown error occurred",
+    };
   }
 };
+ 
 module.exports = {
   sendMail,
 };
